@@ -1,0 +1,53 @@
+﻿@model HomeDetailsViewModel
+
+@{
+    ViewBag.Title = "Filmo aprašas";
+}
+
+<div>
+    <h4>Filmo aprašas</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            Pavadinimas
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Filmas.Pavadinimas
+        </dd>
+        <dt class="col-sm-2">
+            Išleidimo metai
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Filmas.IsleidimoData
+        </dd>
+        @*<dt class="col-sm-2">
+            Enum_Žanras
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Filmas.Zanras
+        </dd>*@
+        <dt class="col-sm-2">
+            Žanras
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Filmas.Zanrai.Pavadinimas
+        </dd>
+        @*<dt class="col-sm-2">
+            Aktoriai
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Filmas.Aktoriai
+        </dd>*@
+        <dt class="col-sm-2">
+            Aktoriai
+        </dt>
+        <dd class="col-sm-10">
+            @Model.DB_Aktoriai
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-controller="home" asp-action="edit" asp-route-id="@Model.Filmas.Id">Redaguoti</a> |
+    <a asp-controller="home" asp-action="delete" asp-route-id="@Model.Filmas.Id">Ištrinti</a> |
+    <a asp-controller="home" asp-action="index">Atgal į filmų sąrašą</a>
+</div>

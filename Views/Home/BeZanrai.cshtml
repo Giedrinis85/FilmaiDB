@@ -1,0 +1,72 @@
+﻿@model FilmoSukurimasViewModel
+
+@{
+    ViewBag.Title = "Sukurti naują įrašą";
+}
+
+
+
+<form asp-controller="home" asp-action="create" method="post" class="mt-3">
+    <div class="form-group row">
+        <label asp-for="Pavadinimas" class="col-sm-2 col-form-label"></label>
+        <div class="col-sm-10">
+            <input asp-for="Pavadinimas" class="form-control" placeholder="Pavadinimas" />
+            <span asp-validation-for="Pavadinimas" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label asp-for="IsleidimoData" class="col-sm-2 col-form-label">Išleidimo metai</label>
+        <div class="col-sm-10">
+            <input asp-for="IsleidimoData" class="form-control" placeholder="Išleidimo metai" />
+            <span asp-validation-for="IsleidimoData" class="text-danger"></span>
+        </div>
+    </div>
+    @*<div class="form-group row">
+            <label asp-for="Zanras" class="col-sm-2 col-form-label">Enum_Žanras</label>
+            <div class="col-sm-10">
+                <select asp-for="Zanras" class="custom-select mr-sm-2"
+                        asp-items="Html.GetEnumSelectList<Zanras>()">
+                    <option value="">Pasirinkti žanrą</option>
+                </select>
+                <span asp-validation-for="Zanras" class="text-danger"></span>
+            </div>
+        </div>*@
+    <div class="form-group row">
+        @*<label asp-for="ZanraiId" class="col-sm-2 col-form-label">DB_Žanras</label>*@
+        <div class="col-sm-2 col-form-label">@Html.LabelFor(Model => Model.ZanraiId, "Žanras")</div>
+        <div class="col-sm-10">
+            @*Html.DropDownListFor(Model => Model.ZanraiId, new SelectList(ViewBag.ZanraiId, "Value", "Text"), "Pasirinkti žanrą", new { @class = "form-control" })*@
+            @Html.ValidationMessageFor(Model => Model.ZanraiId, "", new { @class = "text-danger" })
+            @*<span asp-validation-for="ZanraiId" class="text-danger"></span>*@
+            Žanrų sąrašas tuščias.
+            <a asp-controller="zanrai" asp-action="create_bezanrai">Sukurti žanrą</a>
+        </div>
+    </div>
+    @*<div class="form-group row">
+            <label asp-for="Aktoriai" class="col-sm-2 col-form-label"></label>
+            <div class="col-sm-10">
+                <input asp-for="Aktoriai" class="form-control" placeholder="Aktoriai" />
+                <span asp-validation-for="Aktoriai" class="text-danger"></span>
+            </div>
+        </div>*@
+    <div class="form-group row">
+        <label asp-for="SelectedVal" class="col-sm-2 col-form-label">Aktoriai</label>
+        @*<div class="col-sm-2 col-form-label">@Html.LabelFor(Model => Model.DB_Aktoriai.Id, "DB_Aktoriai")</div>*@
+        <div class="col-sm-10">
+            @Html.ListBoxFor(Model => Model.SelectedVal, new MultiSelectList(ViewBag.AktoriaiList, "Value", "Text"), new { @class = "form-control" })
+            @Html.ValidationMessageFor(Model => Model.SelectedVal, "", new { @class = "text-danger" })
+            @*<span asp-validation-for="DB_Aktoriai.VardasPavarde" class="text-danger"></span>*@
+        </div>
+    </div>
+
+    @*<div>@Html.ValidationSummary(false, "", new { @class = "text-danger" })</div>*@
+    <div asp-validation-summary="All" class="text-danger"></div>
+
+    <div class="form-group row">
+        <div class="col-sm-10">
+            <input type="submit" value="Sukurti" disabled="disabled" /> |
+            <a asp-controller="home" asp-action="index">Atšaukti</a>
+        </div>
+    </div>
+
+</form>

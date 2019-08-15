@@ -1,0 +1,52 @@
+﻿@model Microsoft.EntityFrameworkCore.Internal.InternalDbSet<FilmaiDB.Models.Zanrai>
+
+@{
+    ViewBag.Title = "Žanrai";
+}
+
+<h1>Žanrų sąrašas</h1>
+
+<div class="form-group row">
+    <div class="col-sm-10">
+        <a asp-controller="zanrai" asp-action="create">Sukurti naują įrašą</a>
+    </div>
+</div>
+
+@if (Model.Count() != 0)
+{
+<table class="table">
+    <thead>
+        <tr>
+            @*<th>
+                Nr.
+            </th>*@
+            <th>
+                Pavadinimas
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var zanras in Model)
+{
+        <tr>
+            @*<td>
+                @zanras.Id
+            </td>*@
+            <td>
+                @zanras.Pavadinimas
+            </td>
+            <td align="right">
+                <a asp-controller="zanrai" asp-action="edit" asp-route-id="@zanras.Id">Redaguoti</a> |
+                <a asp-controller="zanrai" asp-action="delete" asp-route-id="@zanras.Id">Ištrinti</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+    <hr style="margin-top:-15px"/>
+}
+else
+{
+    <h2>Žanrų sąrašas tuščias</h2>
+}

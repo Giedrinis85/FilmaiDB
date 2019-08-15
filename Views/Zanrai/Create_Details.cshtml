@@ -1,0 +1,23 @@
+﻿@model ZanruSukurimasDetailsViewModel
+
+@{
+    ViewBag.Title = "Naujai sukurto žanro aprašas";
+}
+
+<div>
+    <h4>Žanro aprašas</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            Pavadinimas
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Zanrai.Pavadinimas
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-controller="zanrai" asp-action="zanruindex">Patvirtinti</a> |
+    <a asp-controller="zanrai" asp-action="edit" asp-route-id="@Model.Zanrai.Id">Redaguoti</a> |
+    <a asp-controller="zanrai" asp-action="delete" asp-route-id="@Model.Zanrai.Id">Atšaukti</a>
+</div>

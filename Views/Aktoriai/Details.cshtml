@@ -1,0 +1,53 @@
+﻿@model AktoriusDetailsViewModel
+
+@{
+    ViewBag.Title = "Aktoriaus aprašas";
+}
+
+<div>
+    <h4>Aktoriaus aprašas</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            Vardas Pavardė
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Aktorius.VardasPavarde
+        </dd>
+        @if (!string.IsNullOrEmpty(Model.DB_Filmai))
+        {
+            @if (Model.FilmuSkaicius == 1)
+            {
+                <dt class="col-sm-2">
+                    Filmas
+                </dt>
+                <dd class="col-sm-10">
+                    @Model.DB_Filmai
+                </dd>
+            }
+            @if (Model.FilmuSkaicius > 1)
+            {
+                <dt class="col-sm-2">
+                    Filmai
+                </dt>
+                <dd class="col-sm-10">
+                    @Model.DB_Filmai
+                </dd>
+            }
+        }
+        else
+        {
+            <dt class="col-sm-2">
+                Filmai
+            </dt>
+            <dd class="col-sm-10">
+                Filmų nėra.
+            </dd>
+        }
+    </dl>
+</div>
+<div>
+    <a asp-controller="aktoriai" asp-action="edit" asp-route-id="@Model.Aktorius.Id">Redaguoti</a> |
+    <a asp-controller="aktoriai" asp-action="delete" asp-route-id="@Model.Aktorius.Id">Ištrinti</a> |
+    <a asp-controller="aktoriai" asp-action="aktoriuindex">Atgal į aktorių sąrašą</a>
+</div>

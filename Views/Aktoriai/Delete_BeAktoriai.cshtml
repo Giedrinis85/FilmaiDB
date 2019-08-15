@@ -1,0 +1,61 @@
+﻿@model AktoriusIstrynimasViewModel
+
+@{
+    ViewBag.Title = "Aktoriaus ištrynimas";
+}
+
+<div>
+    <h4>Ar tikrai norite ištrinti informaciją apie aktorių?</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            Aktorius
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Aktorius.VardasPavarde
+        </dd>
+    </dl>
+</div>
+
+<hr />
+
+@*<h5>Filmai, kurie turi ištrinamą žanrą</h5>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    Nr.
+                </th>
+                <th>
+                    Pavadinimas
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var filmas in Model.Filmai)
+            {
+                <tr>
+                    <td>
+                        @filmas.Id
+                    </td>
+                    <td>
+                        @filmas.Pavadinimas
+                    </td>
+                    <td>
+                        <a asp-controller="home" asp-action="details" asp-route-id="@filmas.Id">Išsamiau</a> |
+                        <a asp-controller="home" asp-action="edit_zanraidelete" asp-route-id="@filmas.Id">Redaguoti</a> |
+                        <a asp-controller="home" asp-action="delete" asp-route-id="@filmas.Id">Ištrinti</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <hr />*@
+
+<form asp-controller="aktoriai" asp-action="delete_beaktoriai">
+    <input type="submit" value="Ištrinti aktorių ir grįžti į filmo sukūrimą" /> |
+    <a asp-controller="home" asp-action="create">Atšaukti ir grįžti į filmo sukūrimą</a>
+</form>

@@ -1,0 +1,31 @@
+﻿@model ZanraiIstrynimasBeFilmuListViewModel
+
+@{
+    ViewBag.Title = "Žanro ištrynimas";
+}
+
+<div>
+    <h4>Ar tikrai norite ištrinti žanrą iš žanrų sąrašo?</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            Pavadinimas
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Zanrai.Pavadinimas
+        </dd>
+    </dl>
+</div>
+
+<table class="table">
+    <tbody>
+        <tr><td>Filmų, kurie turi ištrinamą žanrą, nerasta</td></tr>
+    </tbody>
+</table>
+
+<hr />
+
+<form asp-controller="zanrai" asp-action="delete">
+    <input type="submit" value="Ištrinti žanrą" /> |
+    <a asp-controller="zanrai" asp-action="zanruindex">Atšaukti ir grįžti į žanrų sąršą</a>
+</form>

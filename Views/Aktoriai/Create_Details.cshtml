@@ -1,0 +1,23 @@
+﻿@model AktoriusSukurimasDetailsViewModel
+
+@{
+    ViewBag.Title = "Naujai sukurto aktoriaus aprašas";
+}
+
+    <div>
+        <h4>Aktoriaus aprašas</h4>
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-2">
+                Aktorius
+            </dt>
+            <dd class="col-sm-10">
+                @Model.Aktorius.VardasPavarde
+            </dd>
+        </dl>
+    </div>
+<div>
+    <a asp-controller="aktoriai" asp-action="aktoriuindex">Patvirtinti</a> |
+    <a asp-controller="aktoriai" asp-action="edit" asp-route-id="@Model.Aktorius.Id">Redaguoti</a> |
+    <a asp-controller="aktoriai" asp-action="delete" asp-route-id="@Model.Aktorius.Id">Atšaukti</a>
+</div>

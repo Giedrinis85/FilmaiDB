@@ -1,0 +1,12 @@
+﻿@model int
+
+@{ 
+    ViewBag.Title = "Klaida 404";
+}
+
+<div class="alert alert-danger mt-1 mb-1">
+    <h4>Klaida 404:</h4>
+    <hr />
+    <h5>Sąraše filmo, kurio numeris @Model, nėra</h5>
+</div>
+<a asp-controller="home" asp-action="index">Atgal į filmų sąrašą</a>
