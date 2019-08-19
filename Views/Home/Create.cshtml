@@ -3,6 +3,8 @@
 @{ 
     ViewBag.Title = "Sukurti naują įrašą";
 }
+
+    <h1>Naujas filmas</h1>
     
     <form asp-controller="home" asp-action="create" method="post" class="mt-3">
         <div class="form-group row">
@@ -36,6 +38,17 @@
                 @Html.DropDownListFor(Model => Model.ZanraiId, new SelectList(ViewBag.Zanrai, "Value", "Text"), "Pasirinkti žanrą", new { @class = "form-control" })
                 @*Html.ValidationMessageFor(Model => Model.ZanraiId, "", new { @class = "text-danger" })*@
                 <span asp-validation-for="ZanraiId" class="text-danger"></span>
+                @*<br />
+                <a asp-controller="zanrai" asp-action="create_bezanrai">Papildyti žanrų sąrašą</a>*@
+            </div>
+            @*<div class="col-sm-3">
+                <a asp-controller="zanrai" asp-action="create_bezanrai">Papildyti žanrų sąrašą</a>
+            </div>*@
+        </div>
+        <div class="form-group row">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-10">
+                <a asp-controller="zanrai" asp-action="create_bezanrai">Papildyti žanrų sąrašą</a>
             </div>
         </div>
         @*<div class="form-group row">
@@ -52,6 +65,17 @@
                 @Html.ListBoxFor(Model => Model.SelectedVal, new MultiSelectList(ViewBag.AktoriaiList, "Value", "Text"), new { @class = "form-control" })
                 @Html.ValidationMessageFor(Model => Model.SelectedVal, "", new { @class = "text-danger" })
                 @*<span asp-validation-for="DB_Aktoriai.VardasPavarde" class="text-danger"></span>*@
+                @*<br />
+                <a asp-controller="aktoriai" asp-action="create_beaktoriai">Papildyti aktorių sąrašą</a>*@
+            </div>
+            @*<div class="col-sm-3">
+                <a asp-controller="aktoriai" asp-action="create_beaktoriai">Papildyti aktorių sąrašą</a>
+            </div>*@
+        </div>
+        <div class="form-group row">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-10">
+                <a asp-controller="aktoriai" asp-action="create_beaktoriai">Papildyti aktorių sąrašą</a>
             </div>
         </div>
 

@@ -16,8 +16,9 @@
             </dd>
         </dl>
     </div>
-<div>
-    <a asp-controller="aktoriai" asp-action="aktoriuindex">Patvirtinti</a> |
-    <a asp-controller="aktoriai" asp-action="edit" asp-route-id="@Model.Aktorius.Id">Redaguoti</a> |
-    <a asp-controller="aktoriai" asp-action="delete" asp-route-id="@Model.Aktorius.Id">Atšaukti</a>
-</div>
+    <div>
+        <a asp-controller="aktoriai" asp-action="aktoriuindex">Patvirtinti</a> |
+        <a asp-controller="aktoriai" asp-action="create">Sukurti dar vieną</a> |
+        <a asp-controller="aktoriai" asp-action="edit" asp-route-id="@Model.Aktorius.Id">Redaguoti</a> |
+        <a asp-controller="aktoriai" asp-action="delete" asp-route-id="@Model.Aktorius.Id">Atšaukti</a>
+    </div>
