@@ -23,7 +23,12 @@ namespace FilmaiDB.Controllers
             _zanrai = zanrai;
         }
 
-        public async Task<IActionResult> Index(string searchBy, string search, string filmoZanras, int filmoMetai)
+        public ViewResult Index()
+        {
+            return View();
+        }
+
+        public async Task<IActionResult> FilmuSarasas(string searchBy, string search, string filmoZanras, int filmoMetai)
         {
             IQueryable<string> zanraiQuery = from m in _ffilmaiDB.Filmai
                                              select m.Zanrai.Pavadinimas;

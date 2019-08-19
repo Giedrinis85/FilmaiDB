@@ -1,107 +1,25 @@
-﻿@model FilmuPaieskaViewModel
-
-@{
+﻿@{
     ViewBag.Title = "Film DB";
 }
 
-<h1>Filmų sąrašas</h1>
+<h1>
+    Sveiki!
+</h1>
 
-<div class="form-group row">
-    <div class="col-sm-10">
-        <a asp-controller="home" asp-action="create">Sukurti naują įrašą</a>
-    </div>
-</div>
+<p>
+    Čia rasite filmų sąrašą, kurį galėsite papildyti naujais įrašais, taip pat redaguoti ar ištrinti esamus. 
+    Papildomai padarytas žanrų ir aktorių informacijos įvedimas, redagavimas bei šalinimas.
+    Taigi, pasirinkite nuo ko pradėsite:
 
-<form asp-controller="home" asp-action="index" method="get">
-    @*<p>
-            Paieška pagal filmo pavadinimą: <input type="text" asp-for="SearchString" placeholder="Ieškomas žodis arba frazė" style="width:300px" />
-        <b>Filtravimas pagal:</b>
-        <ul style="list-style-type:none">
-            <li style="margin-bottom:10px">
-                Žanrą
-                <select asp-for="FilmoZanras" asp-items="Model.ZanraiList">
-                    <option value="">Visi</option>
-                </select>
-            </li>
-            <li>
-                Išleidimo metus:
-                <select asp-for="FilmoMetai" asp-items="Model.MetuList">
-                    <option value="">Visi</option>
-                </select>
-            </li>
-        </ul>
-        <input type="submit" value="Filtruoti" />
-        </p>*@
-    <p>
-        <b>Paieška pagal:</b>
-        <ul style="list-style-type:none">
-            <li>@Html.RadioButton("SearchBy", "SearchString", true) Pavadinimą</li>
-            <li>@Html.RadioButton("SearchBy", "FilmoMetai") Išleidimo metus</li>
-            <li>@Html.RadioButton("SearchBy", "FilmoZanras") Žanrą</li>
-        </ul>
-        @Html.TextBox("Search", "", new { @placeholder = "Ieškomas žodis arba frazė, metai ar žanras", style = "width:350px" }) <input type="submit" value="Ieškoti" />
-    </p>
-</form>
-
-<table class="table">
-    <thead>
-        <tr>
-            @*<th>
-                Nr.
-            </th>*@
-            <th>
-                Pavadinimas
-            </th>
-            <th>
-                Išleidimo metai
-            </th>
-            @*<th>
-                Enum_Žanras
-            </th>*@
-            <th>
-                Žanras
-            </th>
-            @*<th>
-                Aktoriai
-            </th>*@
-            @*<th>
-                DB_Aktoriai
-            </th>*@
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var filmas in Model.Filmai)
-        {
-        <tr>
-            @*<td>
-                @filmas.Id
-            </td>*@
-            <td>
-                @filmas.Pavadinimas
-            </td>
-            <td>
-                @filmas.IsleidimoData
-            </td>
-            @*<td>
-                @filmas.Zanras
-            </td>*@
-            <td>
-                @filmas.Zanrai.Pavadinimas
-            </td>
-            @*<td>
-                @filmas.Aktoriai
-            </td>*@
-            @*<td>
-                @string.Join(", ", filmas.AktoriaiFilmai.Select(x => x.AktoriusId))
-            </td>*@
-            <td align="right">
-                <a asp-controller="home" asp-action="details" asp-route-id="@filmas.Id">Išsamiau</a> |
-                <a asp-controller="home" asp-action="edit" asp-route-id="@filmas.Id">Redaguoti</a> |
-                <a asp-controller="home" asp-action="delete" asp-route-id="@filmas.Id">Ištrinti</a>
-            </td>
-        </tr>
-        }
-    </tbody>
-</table>
-<hr style="margin-top:-15px" />
+    <ul>
+        <li>
+            <a asp-controller="home" asp-action="filmusarasas">Filmų sąrašas</a>
+        </li>
+        <li>
+            <a asp-controller="zanrai" asp-action="zanruindex">Žanrų sąrašas</a>
+        </li>
+        <li>
+            <a asp-controller="aktoriai" asp-action="aktoriuindex">Aktorių sąrašas</a>
+        </li>
+    </ul>
+</p>
