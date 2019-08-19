@@ -1,2 +1,0 @@
-# FilmaiDB
-Filmai DB App
